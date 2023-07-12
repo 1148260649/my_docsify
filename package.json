@@ -1,0 +1,11 @@
+{
+  "name": "my_docsify",
+  "version": "1.0.0",
+  "description": "我的md文件http服务",
+  "main": "index.js",
+  "scripts": {
+    "test": "jz:test"
+  },
+  "author": "",
+  "license": "ISC"
+}
