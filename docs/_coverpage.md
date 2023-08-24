@@ -6,9 +6,11 @@
 背景图片: ![](img/321801.jpg)
 ```
 
-[docsify 说明文档](https://docsify.js.org/)
-[docsify github](https://github.com/docsifyjs/docsify-cli)
-[docsify-themeable](https://github.com/jhildenbiddle/docsify-themeable)
-[ReadMe](README.md)
+[docsify](https://docsify.js.org/ "官方说明文档")
+[docsify github](https://github.com/docsifyjs/docsify-cli "github 网址")
+[docsify-themeable](https://github.com/jhildenbiddle/docsify-themeable "主题插件")
+[docsify-tabs](https://jhildenbiddle.github.io/docsify-tabs "选项卡插件")
+[docsify-pagination](https://github.com/imyelo/docsify-pagination#readme "分页插件")
+[ReadMe](README.md "首页")
 
 ![](img/321801.jpg)
