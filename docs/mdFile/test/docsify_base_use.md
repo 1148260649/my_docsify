@@ -6,7 +6,7 @@
 
 ### 代码示例
 
-```txt
+```markdown
 > [!TIP]
 > 这是一个提示
 
@@ -42,7 +42,7 @@
 >
 ### 代码示例
 
-```txt
+```markdown
 + 问题1? +
 
     [制表符]答案1
@@ -88,7 +88,7 @@
 
 ### 代码示例
 
-```txt
+```markdown
 <!-- tabs:start -->
 
 #### **Bold**
@@ -182,12 +182,51 @@
 
 ### 代码示例
 
-````txt
+````markdown
 [rmd](远程md文档路径地址)
 ```
 ````
 
 ### 效果展示
+
+---
+
+## 分栏
+
+### 代码示例
+
+```markdown
+<!-- panels:start -->
+<!-- div:title-panel -->
+
+  (...) - Awesome title
+
+<!-- div:left-panel -->
+
+  (...) - Awesome explanation
+
+<!-- div:right-panel -->
+
+  (...) - Awesome example
+
+<!-- panels:end -->
+```
+
+### 效果展示
+<!-- panels:start -->
+<!-- div:title-panel -->
+
+  (...) - Awesome title
+
+<!-- div:left-panel -->
+
+  (...) - Awesome explanation
+
+<!-- div:right-panel -->
+
+  (...) - Awesome example
+
+<!-- panels:end -->
 
 ---
 
@@ -202,7 +241,7 @@
 
 #### 代码示例
 
-````txt
+````markdown
 ```plantuml
 @startuml
 Alice -> Bob: Authentication Request
@@ -243,7 +282,7 @@ Foo -> Foo7: To queue
 
 #### 代码示例
 
-````txt
+````markdown
 
 ```plantuml
 @startuml
@@ -271,7 +310,7 @@ Bob->L: Log transaction
 
 #### 代码示例
 
-````txt
+````markdown
 ```plantuml
 @startjson
 {
@@ -335,7 +374,7 @@ struct          struct
 
 #### 代码示例
 
-````txt
+````markdown
 ```plantuml
 @startmindmap
 +[#Orange] Colors

@@ -7,7 +7,8 @@
   * [Md 文件常用命令](mdFile/commond/md_file_commands.md "Md 文件常用命令")
 
 * 官方文档
-  * [docsify_tabs官方说明](docsify_docs/docsify_tabs_index.md)
+  * [docsify_tabs](docsify_docs/docsify_tabs_index.md)
+  * [docsify_panels](docsify_docs/docsify_panels_index.md)
 
 * 练习
   * [基础使用](mdFile/test/docsify_base_use.md "基础使用")
