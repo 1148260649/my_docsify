@@ -39,6 +39,7 @@
   <a href="www.itwanger.com">Jz个人博客</a>
   </nav> -->
     <div id="app"></div>
+    <div id="gitalk-container"></div>
     <script>
       window.$docsify = {
         name: "Jz",
@@ -57,7 +58,7 @@
         // 网站备案号
         footer: {
           copy: '<span> Jz &copy; 2023 </span>',
-          auth: '月ICP备17058635号',
+          auth: '年ICP备17058635号',
           pre: '',
           style: 'text-align: center;',
           class: 'className'
@@ -96,6 +97,7 @@
         
         // 搜索功能
         search: {
+          maxAge: '86400000', // 过期时间，单位毫秒，默认1天
           paths: "auto",
           // placeholder: '全局搜索',
           placeholder: {
@@ -107,7 +109,8 @@
             "/zh-cn/": "找不到结果",
             "/": "No Results",
           },
-          depth: 3,
+          depth: 6,  // 搜索标题的最大层级 1-6
+          hideOtherSidebarContent: false // 是否隐藏其他侧边栏内容
         },
 
         // 字数统计
@@ -172,9 +175,88 @@
 
         // 右侧目录
         toc: {
-          scope : '.markdown-section',
-          headings : 'h1,h2,h3,h4,h5,h6',
-          title : '目录'
+          // 方式 1
+          // scope : '.markdown-section',
+          // headings : 'h1,h2,h3,h4,h5,h6',
+          // title : '目录'
+
+          // 方式 2
+          tocMaxLevel: 8,
+          target: 'h1,h2,h3,h4,h5,h6,h7,h8',
+          ignoreHeaders: ['<!-- {docsify-ignore} -->','<!-- {docsify-ignore-all} -->']
+        },
+
+        // 加载远程md
+        remoteMarkdown: {
+          tag: 'rmd'
+        },
+
+        // drawio 查看  和 pdf 阅读器
+        markdown: {
+          renderer: {
+            code: function (code, lang) {
+              if (lang === 'drawio') {
+                if (window.drawioConverter) {
+                  console.log('drawio 转化中')
+                  return window.drawioConverter(code)
+                } else {
+                  return `<div class='drawio-code'>${code}</div>`
+                }
+              } else if(lang === 'pdf'){
+                var pdf_renderer = function(code, lang, verify) {
+                    function unique_id_generator(){
+                        function rand_gen(){
+                            return Math.floor((Math.random()+1) * 65536).toString(16).substring(1);
+                        }
+                        return rand_gen() + rand_gen() + '-' + rand_gen() + '-' + rand_gen() + '-' + rand_gen() + '-' + rand_gen() + rand_gen() + rand_gen();
+                    }
+                    if(lang && !lang.localeCompare('pdf', 'en', {sensitivity: 'base'})){
+                        if(verify){
+                            return true;
+                        }else{
+                            var divId = "markdown_code_pdf_container_" + unique_id_generator().toString();
+                            var container_list = new Array();
+                            if(localStorage.getItem('pdf_container_list')){
+                                container_list = JSON.parse(localStorage.getItem('pdf_container_list'));	
+                            }
+                            container_list.push({"pdf_location": code, "div_id": divId});
+                            localStorage.setItem('pdf_container_list', JSON.stringify(container_list));
+                            return (
+                                '<div style="margin-top:'+ PDF_MARGIN_TOP +'; margin-bottom:'+ PDF_MARGIN_BOTTOM +';" id="'+ divId +'">'
+                                    + '<a href="'+ code + '"> Link </a> to ' + code +
+                                '</div>'
+                            );
+                        } 
+                    }
+                    return false;
+                }
+                if(pdf_renderer(code, lang, true)){
+                  return pdf_renderer(code, lang, false);
+                }
+              }else {
+                return this.origin.code.apply(this, arguments);
+              }
+            }
+          }
+        },
+
+        // 展示项目的贡献者
+        contributors: {
+          repo: '1148260649/my_docsify',
+          ignores: [],
+          style: {
+              color: '#ffffff',
+              bgColor: '#404040'
+          },
+          image: {
+              size: 30,
+              isRound: true,
+              margin: '0.5em'
+          },
+          load: {
+              isOpen: true,
+              color: "#009999"
+          }
         },
 
         plugins: [
@@ -233,6 +315,7 @@
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-http.min.js"></script> -->
 
     <!-- 搜索功能 -->
+    <!-- 该插件会根据当前页面上的超连接获取文档内容，在 localStorage 内建立文档索引，默认过期时间为1天 -->
     <script src="./js/plugins/search.min.js"></script>
 
     <!-- 图片缩放功能 -->
@@ -297,11 +380,72 @@
     <!-- <script src="https://unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script> -->
     
     <!-- 右侧目录 -->
-    <script src="./js/plugins/toc.js"></script>
+    <!-- <script src="./js/plugins/toc/toc.js"></script> -->
     <!-- <script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script> -->
-    <link rel="stylesheet" href="./css/toc.css">
+    <!-- <link rel="stylesheet" href="./css/toc.css"> -->
     <!-- <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css"> -->
+    <!-- 右侧目录 2 -->
+    <script src="./js/plugins/toc/docsify-plugin-toc.min.js"></script>
+    <!-- <script src="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script> -->
+    <link rel="stylesheet" href="./css/toc/light.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/light.css"> -->
 
+    <!-- gitalk 评论 -->
+    <script src="./js/plugins/gitalk/gitalk.min.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script> -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script> -->
+    <link rel="stylesheet" href="./css/gitalk/gitalk.css">
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css"> -->
+    <script>
+      const gitalk = new Gitalk({
+        clientID: '03e59fb37b482cbcd1b3',
+        clientSecret: '80eb1f6d38d4a4311aa066fafbab827be594f113',
+        repo: 'my_docsify',
+        owner: '1148260649',
+        admin: ['1148260649'],
+        distractionFreeMode: false,
+        id: decodeURI(window.location.pathname)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+
+    <!-- 手风琴 -->
+    <script src="./js/plugins/accordion/index.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/docsify-accordion/src/index.js"></script> -->
+    <link rel="stylesheet" href="./css/accordion/style.css">
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-accordion/src/style.css"> -->
+
+    <!-- 预览html -->
+    <script src="./js/plugins/html preview/index.min.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/docsify-demo@latest/dist/index.min.js"></script> -->
+    <link rel="stylesheet" href="./css/html preview/index.min.css">
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-demo@latest/dist/index.min.css"> -->
+
+    <!-- 中英文之间自动加空格 * 该插件可能会与其他插件有冲突 -->
+    <script src="./js/plugins/pangu.min.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/docsify-pangu/lib/pangu.min.js"></script> -->
+
+    <!-- 自动加载远程md文件 -->
+    <script src="./js/plugins/docsify-remote-markdown.min.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/docsify-remote-markdown/dist/docsify-remote-markdown.min.js"></script> -->
+
+    <!-- 集成drawio插件 -->
+    <script src="./js/plugins/drawio/viewer.min.js"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/docsify-drawio/viewer.min.js"></script> -->
+    <script src="./js/plugins/drawio/drawio.js"></script>
+    <!-- <script src='//cdn.jsdelivr.net/npm/docsify-drawio/drawio.js'></script> -->
+
+    <!-- kroki 图形化语言 -->
+    <!-- <script src="./js/plugins/drawio/viewer.min.js"></script> -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/docsify-kroki"></script> -->
+
+    <!-- 项目贡献者 docsify-contributors -->
+    <script src="//gcore.jsdelivr.net/npm/docsify-contributors@latest/dist/index.min.js"></script>
+
+
+    <!-- PDF 阅读器-->
+    <!-- <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script> -->
+    <script src="./js/plugins/docsify-pdf-embed.js"></script>
     
     
     <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
