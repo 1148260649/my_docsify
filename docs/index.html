@@ -39,6 +39,7 @@
   <a href="www.itwanger.com">Jz个人博客</a>
   </nav> -->
     <div id="app"></div>
+    <!-- gitalk -->
     <div id="gitalk-container"></div>
     <script>
       window.$docsify = {
@@ -390,14 +391,14 @@
     <link rel="stylesheet" href="./css/toc/light.css">
     <!-- <link rel="stylesheet" href="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/light.css"> -->
 
-    <!-- gitalk 评论 -->
-    <!-- <link rel="stylesheet" href="./css/gitalk/gitalk.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
-    <!-- <script src="./js/plugins/gitalk/gitalk.min.js"></script> -->
-    <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
-    <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <!-- https://gitcode.net/mirrors/gitalk/gitalk -->
-  
+    <!-- gitalk 评论 官网地址: https://gitcode.net/mirrors/gitalk/gitalk -->
+    <link rel="stylesheet" href="./css/gitalk/gitalk.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css"> -->
+    <script src="./js/plugins/gitalk/docsify.gitalk.min.js"></script>
+    <!-- <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script> -->
+    <script src="./js/plugins/gitalk/gitalk.min.js"></script>
+    <!-- <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
+    <!-- <script src="https://gcore.jsdelivr.net/npm/docsify-gitalk@1.0.0/dist/docsify-gitalk.min.js"></script> -->
     <script>
       const gitalk = new Gitalk({
         clientID: '03e59fb37b482cbcd1b3',
@@ -407,10 +408,8 @@
         admin: ['1148260649'],
         distractionFreeMode: false,
         id: decodeURI(window.location.pathname)
-      })
-      
-      gitalk.render('gitalk-container')
-      
+      });
+      gitalk.render('gitalk-container');
     </script>
 
     <!-- 手风琴 -->
@@ -450,16 +449,21 @@
     <!-- https://www.npmjs.com/package/docsify-to-pdf -->
 
     <!-- docsify-example-panels (latest) 分栏-->
-    <link rel="stylesheet" href="./css/adocsify-panels.css">
+    <link rel="stylesheet" href="./css/docsify-panels.css">
     <script src="./js/plugins/docsify-example-panels.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/docsify-example-panels"></script> -->
 
 
     <!-- PDF 阅读器-->
+    <script src="./js/plugins/pdfEmbed/pdfobject.min.js"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script>  -->
+    <script src="./js/plugins/pdfEmbed/docsify-pdf-embed.js"></script>
     <!-- <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script> -->
-    <script src="./js/plugins/docsify-pdf-embed.js"></script>
     
+
+
     
+
     <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-ethicalads@1"></script>

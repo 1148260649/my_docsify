@@ -13,5 +13,4 @@
 * 练习
   * [基础使用](mdFile/test/docsify_base_use.md "基础使用")
   * [高级使用](mdFile/test/docsify_high_use.md "高级使用")
-  * [docsify pdf](mdFile/test/pdf_read.md "docsify pdf阅读器")
   * [docsify 使用问题](mdFile/problem/docsify_use_problem.md "docsify使用问题")

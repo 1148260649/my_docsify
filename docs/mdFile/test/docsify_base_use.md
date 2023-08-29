@@ -193,6 +193,8 @@
 
 ## 分栏
 
+> 官网：[docsify-demo](https://www.npmjs.com/package/docsify-pdf-embed-plugin)
+
 ### 代码示例
 
 ```markdown
@@ -227,6 +229,26 @@
   (...) - Awesome example
 
 <!-- panels:end -->
+
+---
+
+## pdf预览
+
+> 官网：[docsify-pdf-embed-plugin](https://www.npmjs.com/package/docsify-pdf-embed-plugin)
+
+### 代码示例
+
+````txt
+```pdf
+[文件路径]
+```
+````
+
+### 效果展示
+
+```pdf
+../../pdf/优知学院-Spring Boot面试题与答案.pdf
+```
 
 ---
 

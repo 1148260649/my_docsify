@@ -4,8 +4,18 @@
   "description": "我的md文件http服务",
   "main": "index.js",
   "scripts": {
-    "test": "jz:test"
+    "test": "jz:test",
+    "convert": "docsify-to-pdf"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "jz",
+  "license": "ISC",
+  "devDependencies": {
+    "docsify-to-pdf": "^0.0.5"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "puppeteer": "^21.1.0"
+  }
 }

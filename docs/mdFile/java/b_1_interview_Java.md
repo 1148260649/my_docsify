@@ -26,7 +26,7 @@
 7. 支持网络编程并且很方便（ Java 语言诞生本身就是为简化网络编程设计的，因此 Java 语言不仅支持网络编程而且很方便）；
 8. 编译与解释并存；
 
-> 修正（参见： [issue#544](https://github.com/Snailclimb/JavaGuide/issues/544)）：C++11 开始（2011 年的时候）,C++就引入了多线程库，在 windows、linux、macos 都可以使用`std::thread`和`std::async`来创建线程。参考链接：http://www.cplusplus.com/reference/thread/thread/?kw=thread
+> 修正（参见： [issue#544](https://github.com/Snailclimb/JavaGuide/issues/544)）：C++11 开始（2011 年的时候）,C++就引入了多线程库，在 windows、linux、macos 都可以使用`std::thread`和`std::async`来创建线程。参考链接：<http://www.cplusplus.com/reference/thread/thread/?kw=thread>
 
 ### 3. 关于 JVM JDK 和 JRE 最详细通俗的解答
 
@@ -40,7 +40,7 @@ Java 虚拟机（JVM）是运行 Java 字节码的虚拟机。JVM 有针对不�
 
 **Java 程序从源代码到运行一般有下面 3 步：**
 
-![Java程序运行过程](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/Java%20%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B.png)
+![Java程序运行过程](../../img/java/interview-java/Java_程序运行过程.png)
 
 我们需要格外注意的是 .class->机器码 这一步。在这一步 JVM 类加载器首先加载字节码文件，然后通过解释器逐行解释执行，这种方式的执行速度会相对比较慢。而且，有些方法和代码块是经常需要被调用的(也就是所谓的热点代码)，所以后面引进了 JIT 编译器，而 JIT 属于运行时编译。当 JIT 编译器完成第一次编译后，其会将字节码对应的机器码保存下来，下次可以直接使用。而我们知道，机器码的运行效率肯定是高于 Java 解释器的。这也解释了我们为什么经常会说 Java 是编译与解释共存的语言。
 
@@ -70,7 +70,7 @@ JRE 是 Java 运行时环境。它是运行已编译 Java 程序所需的所有�
 
 **总结：**
 
-1. Oracle JDK 大概每 6 个月发一次主要版本，而 OpenJDK 版本大概每三个月发布一次。但这不是固定的，我觉得了解这个没啥用处。详情参见：https://blogs.oracle.com/java-platform-group/update-and-faq-on-the-java-se-release-cadence。
+1. Oracle JDK 大概每 6 个月发一次主要版本，而 OpenJDK 版本大概每三个月发布一次。但这不是固定的，我觉得了解这个没啥用处。详情参见：<https://blogs.oracle.com/java-platform-group/update-and-faq-on-the-java-se-release-cadence。>
 2. OpenJDK 是一个参考模型并且是完全开源的，而 Oracle JDK 是 OpenJDK 的一个实现，并不是完全开源的；
 3. Oracle JDK 比 OpenJDK 更稳定。OpenJDK 和 Oracle JDK 的代码几乎相同，但 Oracle JDK 有更多的类和一些错误修复。因此，如果您想开发企业/商业软件，我建议您选择 Oracle JDK，因为它经过了彻底的测试和稳定。某些情况下，有些人提到在使用 OpenJDK 可能会遇到了许多应用程序崩溃的问题，但是，只需切换到 Oracle JDK 就可以解决问题；
 4. 在响应性和 JVM 性能方面，Oracle JDK 与 OpenJDK 相比提供了更好的性能；
@@ -87,10 +87,6 @@ JRE 是 Java 运行时环境。它是运行已编译 Java 程序所需的所有�
 - Java 有自动内存管理机制，不需要程序员手动释放无用内存
 - **在 C 语言中，字符串或字符数组最后都会有一个额外的字符‘\0’来表示结束。但是，Java 语言中没有结束符这一概念。** 这是一个值得深度思考的问题，具体原因推荐看这篇文章： [https://blog.csdn.net/sszgg2006/article/details/49148189](https://blog.csdn.net/sszgg2006/article/details/49148189)
 
-> 作者：Guide哥。
->
-> **介绍:** Github 70k Star 项目  **[JavaGuide](https://github.com/Snailclimb/JavaGuide)**（公众号同名） 作者。每周都会在公众号更新一些自己原创干货。公众号后台回复“1”领取Java工程师必备学习资料+面试突击pdf。
-
 ### 6. 什么是 Java 程序的主类 应用程序和小程序的主类有何不同?
 
 一个程序中可以有多个类，但只能有一个类是主类。在 Java 应用程序中，这个主类是指包含 main（）方法的类。而在 Java 小程序中，这个主类是一个继承自系统类 JApplet 或 Applet 的子类。应用程序的主类不一定要求是 public 类，但小程序的主类要求必须是 public 类。主类是 Java 程序执行的入口点。
@@ -106,7 +102,7 @@ JRE 是 Java 运行时环境。它是运行已编译 Java 程序所需的所有�
 3. 占内存大小 字符常量只占 2 个字节; 字符串常量占若干个字节 (**注意： char 在 Java 中占两个字节**)
 
 > java 编程思想第四版：2.2.2 节
-> ![](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-9-15/86735519.jpg)
+> ![java_编程思想第四版_2.2.2_节](../../img/java/interview-java/java_编程思想第四版_2.2.2_节.jpg)
 
 ### 9. 构造器 Constructor 是否可被 override?
 
@@ -120,7 +116,7 @@ Constructor 不能被 override（重写）,但是可以 overload（重载）,所
 
 下面是《Java 核心技术》对重载这个概念的介绍：
 
-![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/bg/desktopjava核心技术-重载.jpg)
+![desktopjava核心技术-重载.jpg](../../img/java/interview-java/desktopjava核心技术-重载.jpg)
 
 #### 重写
 
@@ -351,11 +347,11 @@ hashCode() 的作用是获取哈希码，也称为散列码；它实际上是返
 
 Java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种不同状态的其中一个状态（图源《Java 并发编程艺术》4.1.4 节）。
 
-![Java线程的状态](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/19-1-29/Java%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81.png)
+![Java线程的状态](../../img/java/interview-java/Java_线程的状态.png)
 
 线程在生命周期中并不是固定处于某一个状态而是随着代码的执行在不同状态之间切换。Java 线程状态变迁如下图所示（图源《Java 并发编程艺术》4.1.4 节）：
 
-![Java线程状态变迁](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/19-1-29/Java%20%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E5%8F%98%E8%BF%81.png)
+![Java线程状态变迁](../../img/java/interview-java/Java_线程状态变迁.png)
 
 由上图可以看出：
 
@@ -363,7 +359,7 @@ Java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种
 
 > 操作系统隐藏 Java 虚拟机（JVM）中的 READY 和 RUNNING 状态，它只能看到 RUNNABLE 状态（图源：[HowToDoInJava](https://howtodoinjava.com/)：[Java Thread Life Cycle and Thread States](https://howtodoinjava.com/java/multi-threading/java-thread-life-cycle-and-thread-states/)），所以 Java 系统一般将这两个状态统称为 **RUNNABLE（运行中）** 状态 。
 
-![RUNNABLE-VS-RUNNING](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3/RUNNABLE-VS-RUNNING.png)
+![RUNNABLE-VS-RUNNING](../../img/java/interview-java/RUNNABLE-VS-RUNNING.png)
 
 当线程执行 `wait()`方法之后，线程进入 **WAITING（等待）**状态。进入等待状态的线程需要依靠其他线程的通知才能够返回到运行状态，而 **TIME_WAITING(超时等待)** 状态相当于在等待状态的基础上增加了超时限制，比如通过 `sleep（long millis）`方法或 `wait（long millis）`方法可以将 Java 线程置于 TIMED WAITING 状态。当超时时间到达后 Java 线程将会返回到 RUNNABLE 状态。当线程调用同步方法时，在没有获取到锁的情况下，线程将会进入到 **BLOCKED（阻塞）** 状态。线程在执行 Runnable 的`run()`方法之后将会进入到 **TERMINATED（终止）** 状态。
 
@@ -379,7 +375,7 @@ final 关键字主要用在三个地方：变量、方法、类。
 
 #### Java 异常类层次结构图
 
-![Java异常类层次结构图](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-2/Exception.png)
+![Java异常类层次结构图](../../img/java/interview-java/Exception.png)
 
 在 Java 中，所有的异常都有一个共同的祖先 java.lang 包中的 **Throwable 类**。Throwable： 有两个重要的子类：**Exception（异常）** 和 **Error（错误）** ，二者都是 Java 异常处理的重要子类，各自都包含大量子类。
 
@@ -468,11 +464,11 @@ Java Io 流共涉及 40 多个类，这些类看上去很杂乱，但实际上�
 
 按操作方式分类结构图：
 
-![IO-操作方式分类](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/IO-操作方式分类.png)
+![IO-操作方式分类](../../img/java/interview-java/IO-操作方式分类.png)
 
 按操作对象分类结构图：
 
-![IO-操作对象分类](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/IO-操作对象分类.png)
+![IO-操作对象分类](../../img/java/interview-java/IO-操作对象分类.png)
 
 #### 既然有了字节流,为什么还要有字符流?
 
@@ -488,7 +484,7 @@ Java Io 流共涉及 40 多个类，这些类看上去很杂乱，但实际上�
 
 ### 36. 常见关键字总结:static,final,this,super
 
-详见笔主的这篇文章:  https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/basic/final,static,this,super.md
+详见笔主的这篇文章:  <https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/basic/final,static,this,super.md>
 
 ### 37. Collections 工具类和 Arrays 工具类常见方法总结
 
@@ -499,20 +495,10 @@ Java Io 流共涉及 40 多个类，这些类看上去很杂乱，但实际上�
 1. **浅拷贝**：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，此为浅拷贝。
 2. **深拷贝**：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。
 
-![deep and shallow copy](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/java-deep-and-shallow-copy.jpg)
+![java-deep-and-shallow-copy](../../img/java/interview-java/java-deep-and-shallow-copy.jpg)
 
 ### 参考
 
-- https://stackoverflow.com/questions/1906445/what-is-the-difference-between-jdk-and-jre
-- https://www.educba.com/oracle-vs-openjdk/
-- https://stackoverflow.com/questions/22358071/differences-between-oracle-jdk-and-openjdk?answertab=active#tab-top
-
-### 公众号
-
-如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。
-
-**《JavaGuide 面试突击版》 :** 由本文档衍生的专为面试而生的《JavaGuide 面试突击版》 版本[公众号](#公众号)后台回复 **"Java 面试突击"** 即可免费领取！
-
-**Java 工程师必备学习资源:** 一些 Java 工程师常用学习资源公众号后台回复关键字 **“1”** 即可免费无套路获取。
-
-![我的公众号](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/167598cd2e17b8ec.png)
+- <https://stackoverflow.com/questions/1906445/what-is-the-difference-between-jdk-and-jre>
+- <https://www.educba.com/oracle-vs-openjdk/>
+- <https://stackoverflow.com/questions/22358071/differences-between-oracle-jdk-and-openjdk?answertab=active#tab-top>
