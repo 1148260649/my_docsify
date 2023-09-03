@@ -1,21 +1,22 @@
+* [更新日志](CHANGELOG.md "更新日志")
 * [首页](README.md)
-
 * 语言
+
   * [:🇺🇸: **美国**](/)
   * [:🇬🇧: **英国**](/)
   * [:🇨🇳: **简体中文**](/zh-cn/README.md "简体中文")
   * [**这是一个超长的展示**](/)
-
 * 演示
+
   * [后台管理]()
   * [小程序端]()
-
 * 项目地址
+
   * [后台平台](https://github.com/Jackson0714/PassJava-Platform)
   * [后台管理](https://github.com/Jackson0714/PassJava-Portal)
   * [学习教程](https://github.com/Jackson0714/PassJava-Learning)
-
 * Java面试
+
   * [备战面试](mdFile/java/a_1_interview.md "备战面试")
   * [java基础](mdFile/java/b_1_interview_Java.md "java基础")
   * [java集合](mdFile/java/b_2_java_set.md "java集合")

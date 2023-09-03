@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>学习文档</title>
-    <link rel="icon" href="./img/favicon.ico" />
+    <link rel="icon" href="./img/jz64.ico" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="Description" />
     <meta
@@ -45,7 +45,7 @@
       window.$docsify = {
         name: "Jz",
         repo: "https://github.com/1148260649/my_docsify",
-        logo: "/img/favicon.ico", // 在侧边栏中出现的网站图标
+        logo: "/img/jz128.ico", // 在侧边栏中出现的网站图标
         homepage: "README.md", // 设置首页页面
         loadNavbar: true, // 加载自定义标题栏
         loadSidebar: true, // 加载自定义侧边栏
@@ -55,6 +55,13 @@
         maxLevel: 8, // 默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
         subMaxLevel: 8, // 生成目录的最大层级
         sidebarDisplayLevel: 5, // 侧边栏级别
+
+        // 复制
+        copyCode: {
+          buttonText : '点击复制',
+          errorText  : '错误',
+          successText: '复制成功'
+        },
 
         // 网站备案号
         footer: {
@@ -79,9 +86,7 @@
           "/.*/_navbar.md": "/_navbar.md",
         },
 
-        ethicalAds: {
-          eaPublisher: "jhildenbiddle-github-io",
-        },
+        // 在页面中执行脚本
         executeScript: true,
 
         // 提示
@@ -260,6 +265,26 @@
           }
         },
 
+        // 开启网站访问计数
+        busuanzi: true,
+        
+        // docsify ads 配置广告
+        ads: [
+          {
+            img: 'img/ads/千牛云/新人免费CDN/CPS推广素材480x300.jpg',
+            href: 'https://s.qiniu.com/qmqEJv'
+          },
+          {
+            img: 'img/ads/千牛云/新人免费云主机/CPS推广素材480x300.jpg',
+            href: 'https://s.qiniu.com/Yz6zUf'
+          },
+        ],
+
+        // 广告
+        // ethicalAds: {
+        //   eaPublisher: "jhildenbiddle-github-io",
+        // },
+
         plugins: [
           // Restores initial <title>
           function persistTitle(hook, vm) {
@@ -295,8 +320,8 @@
     <!-- <script src="//unpkg.com/docsify-count/dist/countable.js"></script> -->
 
     <!-- 自定义导航栏 - 国旗 -->
-    <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script> -->
-    <script src="./js/plugins/emoji.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+    <!-- <script src="./js/plugins/emoji.min.js"></script> -->
 
     <!-- 代码高亮 -->
     <script src="./js/plugins/prism/prism-java.min.js"></script>
@@ -453,20 +478,27 @@
     <script src="./js/plugins/docsify-example-panels.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/docsify-example-panels"></script> -->
 
-
     <!-- PDF 阅读器-->
     <script src="./js/plugins/pdfEmbed/pdfobject.min.js"></script>
     <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script>  -->
     <script src="./js/plugins/pdfEmbed/docsify-pdf-embed.js"></script>
     <!-- <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script> -->
-    
+
+    <!-- 统计网站统计 -->
+    <script src="./js/plugins/docsify-busuanzi.min.js"></script>
+    <!-- <script src="https://unpkg.com/docsify-busuanzi@1.0.1/dist/docsify-busuanzi.min.js"></script> -->
+    <!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
+
+    <!-- 广告 -->
+    <!-- <script src="./js/plugins/ads/docsify-ads.min.js"></script> -->
+    <script src="https://unpkg.com/docsify-ads@1.0.4/dist/docsify-ads.min.js"></script>
+    <!-- <script src="http://gcore.jsdelivr.net/npm/docsify-ads@1.0.4/dist/docsify-ads.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-ethicalads@1"></script> -->
 
 
-    
 
     <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
     
-    <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-ethicalads@1"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/class-change@1"></script>    
     <script>
